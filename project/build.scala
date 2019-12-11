@@ -58,7 +58,7 @@ object build {
   val json4sSettings = mavenCentralFrouFrou ++ mimaSettings ++ Def.settings(
     organization := "org.json4s",
     scalaVersion := "2.12.8",
-    crossScalaVersions := Seq("2.10.7", "2.11.12", "2.12.8", "2.13.0-RC2"),
+    crossScalaVersions := Seq("2.10.7", "2.11.12", "2.12.8", "2.13.0"),
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature", "-language:existentials", "-language:implicitConversions", "-language:higherKinds", "-language:postfixOps"),
     scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)) {
       case Some((2, 10)) => "-optimize"
@@ -86,7 +86,7 @@ object build {
           Seq("-Ywarn-unused:imports")
       }
     },
-    version := "3.6.7-SNAPSHOT",
+    version := "3.6.7",
     javacOptions ++= Seq("-target", "1.8", "-source", "1.8"),
     Seq(Compile, Test).map { scope =>
       unmanagedSourceDirectories in scope += {
